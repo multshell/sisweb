@@ -13,6 +13,8 @@ gem 'devise'
 gem 'devise-i18n'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
+# Minimal authorization through OO design and pure Ruby classes
+gem "pundit"
 
 source 'https://rails-assets.org' do
   # NotifyJS
@@ -21,8 +23,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootbox'
 end
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,8 +34,6 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -55,6 +53,8 @@ group :development, :test do
   gem 'byebug'
   # Better error page for Rack apps
   gem 'better_errors'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -63,5 +63,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  # PostgreSQL
+  gem 'pg'
 end
 

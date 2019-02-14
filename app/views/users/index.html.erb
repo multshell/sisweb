@@ -3,8 +3,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             Listando Usuários
-            <%= link_to new_user_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
-                <i class="fa fa-plus"></i>
+            <% if policy(@users).new? %>
+                <%= link_to new_user_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
+                    <i class="fa fa-plus"></i>
+                <% end %>
             <% end %>
         </div>
         <!-- /.panel-heading -->
@@ -15,8 +17,8 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Email<%#= @users.model.human_attribute_name('name') %></th>
-                            <th><%= @users.model.human_attribute_name('role') %></th>
+                            <th>Email</th>
+                            <th>Tipo de Acesso</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -26,12 +28,18 @@
                             <td><%= user.id %></td>
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
-                            <td><%#= user.role_i18n %></td>
+                            <td><%= user.role %></td>
                             <td style="width: 150px">
-                                <%= link_to edit_user_path(user), class: "btn btn-primary btn-circle" do %>
-                                    <i class="fa fa-edit"></i>
+                                <% if (user.role != 'completo') && policy(@users).edit? %>
+                                    <%= link_to edit_user_path(user), class: "btn btn-primary btn-circle" do %>
+                                        <i class="fa fa-edit"></i>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to '#', disabled: 'disabled', class:"btn btn-primary btn-circle", style:"margin-top: -5px" do %>
+                                        <i class="fa fa-edit"></i>
+                                    <% end %>
                                 <% end %>
-                                <% if current_user.id != user.id %>
+                                <% if (user.role != 'completo') && policy(@users).destroy? %>
                                     <%= link_to user_path(user),
                                                 method: :delete,
                                                 class: "btn btn-danger btn-circle",

@@ -11,7 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190128205204) do
+ActiveRecord::Schema.define(version: 20190131191010) do
+
+  create_table "contratos", force: :cascade do |t|
+    t.integer  "numero"
+    t.string   "ano",           limit: 4
+    t.integer  "entidade_id"
+    t.integer  "fornecedor_id"
+    t.decimal  "valor",                   precision: 8, scale: 2
+    t.text     "objeto"
+    t.integer  "modalidade_id"
+    t.date     "data_ass"
+    t.date     "data_venc"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "contratos", ["entidade_id"], name: "index_contratos_on_entidade_id"
+  add_index "contratos", ["fornecedor_id"], name: "index_contratos_on_fornecedor_id"
+  add_index "contratos", ["modalidade_id"], name: "index_contratos_on_modalidade_id"
+  add_index "contratos", ["numero", "ano"], name: "index_contratos_on_numero_and_ano", unique: true
+
+  create_table "entidades", force: :cascade do |t|
+    t.string   "sigla",      limit: 10
+    t.string   "nome",       limit: 100
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "fornecedores", force: :cascade do |t|
+    t.string   "nome",       limit: 100
+    t.string   "contato",    limit: 50
+    t.string   "telefone",   limit: 11
+    t.string   "email",      limit: 100
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "modalidades", force: :cascade do |t|
+    t.string   "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

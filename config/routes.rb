@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-
+  
+  
+  
   get 'panels/index'
   
   get 'contratos/index'
   
-  resources :users, except: [:show]
-
   devise_for :users, :skip => [:registrations]
+  
+  resources :users, except: [:show]
+  resources :fornecedores, except: [:show]
+  resources :modalidades, except: [:show]
+  resources :entidades, except: [:show]
+  resources :contratos, except: [:show]
+
+  
   
   root 'panels#index'
 

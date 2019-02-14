@@ -2,11 +2,12 @@ class UsersController < SistemaController
   before_action :set_user, only: [:edit, :update, :destroy]
   
   def index
-    @users = User.all
+    @users = User.where("id != '1'")
   end
   
   def new
     @user = User.new
+    authorize @user
   end
   
   def create
@@ -19,10 +20,10 @@ class UsersController < SistemaController
   end
   
   def edit
+    authorize @user
   end
 
   def update
-    
     passwd = params[:user][:password]
     passwd_confirmation = params[:user][:password_confirmation]
     
@@ -39,6 +40,7 @@ class UsersController < SistemaController
   end
   
   def destroy
+    authorize @user
     user_email = @user.email
     
     if @user.destroy
@@ -55,7 +57,7 @@ class UsersController < SistemaController
     end
     
     def params_user
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
     end
   
 end

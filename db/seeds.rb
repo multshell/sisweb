@@ -11,6 +11,7 @@ puts "Cadastrando o USUARIO Administrador Padrão.."
 User.create!(name: "Super Usuário",
              email: "admin@admin.com",
              password: "#pass@pmm-sis18*",
-             password_confirmation: "#pass@pmm-sis18*")
+             password_confirmation: "#pass@pmm-sis18*",
+             role: 0)
              
 puts "USUARIO Cadastrado com Sucesso!"
