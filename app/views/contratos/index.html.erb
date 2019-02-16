@@ -37,7 +37,7 @@
                         <td><%= "#{contrato.numero}/#{contrato.ano}" %></td>
                         <td><%= contrato.entidade.sigla %></td>
                         <td><%= contrato.fornecedor.nome %></td>
-                        <td><%= contrato.valor %></td>
+                        <td><%= humanized_money_with_symbol contrato.valor %></td>
                         <td><%= contrato.objeto %></td>
                         <td><%= contrato.modalidade.descricao %></td>
                         <td><%= contrato.data_ass %></td>

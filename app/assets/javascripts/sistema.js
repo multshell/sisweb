@@ -1,5 +1,6 @@
 //= require notifyjs
 //= require bootbox
+//= require jquery.mask.min.js
 
 
 /* Sobrescreve data-confirm do Rails */

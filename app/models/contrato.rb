@@ -15,4 +15,7 @@ class Contrato < ActiveRecord::Base
   
   validates :numero, uniqueness: { scope: :ano, message: "de contrato já existe" }
   
+  # gem money-rails
+  monetize :valor_cents
+  
 end

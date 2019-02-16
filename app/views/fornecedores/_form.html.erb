@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <%= f.text_field :telefone, class: "form-control", placeholder: "Telefone do Fornecedor"  %>
+                <%= f.text_field :telefone, class: "form-control", id: 'tel_celular', placeholder: "Telefone do Fornecedor"  %>
             </div>
             <div class="form-group">
                 <label>Email</label>
@@ -42,3 +42,17 @@
 </div>
     <!-- /.panel-body -->
 </div>
+
+<script type="text/javascript" charset="utf-8"> 
+    $('#tel_celular').mask("(99) 99999-9999").focusout(function() {
+      var phone, element;
+      element = $(this);
+      element.unmask();
+      phone = element.val().replace(/\D/g, '');
+      if (phone.length > 10) {
+           element.mask("(99) 99999-9999");
+      } else {
+           element.mask("(99) 9999-9999");
+      }
+ }).trigger('focusout');
+</script>

@@ -3,7 +3,7 @@ class CreateFornecedores < ActiveRecord::Migration
     create_table :fornecedores do |t|
       t.string :nome, limit: 100
       t.string :contato, limit: 50
-      t.string :telefone, limit: 11
+      t.string :telefone, limit: 15
       t.string :email, limit: 100
 
       t.timestamps null: false

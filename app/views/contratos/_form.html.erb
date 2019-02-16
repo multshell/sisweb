@@ -46,7 +46,10 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label>Valor</label>
-                <%= f.text_field :valor, class: "form-control", placeholder: "Valor do Contrato"  %>
+                <div class="form-group input-group">
+                    <span class="input-group-addon">R$</span>
+                    <%= f.text_field :valor, class: "form-control", id: 'money', placeholder: "Valor do Contrato"  %>
+                </div>
             </div>
         </div>
         <div class="col-lg-6">
@@ -80,3 +83,7 @@
 </div>
     <!-- /.panel-body -->
 </div>
+
+<script type="text/javascript" charset="utf-8"> 
+    $('#money').mask('00.000.000,00', {reverse: true});
+</script>

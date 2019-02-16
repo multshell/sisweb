@@ -15,6 +15,10 @@ gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
 # Minimal authorization through OO design and pure Ruby classes
 gem "pundit"
+# jQuery Mask PlugIn GEM
+gem 'jquery-mask-plugin'
+# Integration of RubyMoney - Money with Rails
+gem 'money-rails', '~>1.12'
 
 source 'https://rails-assets.org' do
   # NotifyJS
@@ -22,6 +26,8 @@ source 'https://rails-assets.org' do
   # BootBox
   gem 'rails-assets-bootbox'
 end
+
+gem 'pg', '~> 0.20'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -54,7 +60,7 @@ group :development, :test do
   # Better error page for Rack apps
   gem 'better_errors'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3'
 end
 
 group :development do
@@ -67,6 +73,6 @@ end
 
 group :production do
   # PostgreSQL
-  gem 'pg'
+  #gem 'pg'
 end
 
