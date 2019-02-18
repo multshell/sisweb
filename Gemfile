@@ -71,6 +71,8 @@ group :development do
   gem 'capistrano', '~> 3.10', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-bundler', '~> 1.5'
+  # RVM support for Capistrano v3:
+  gem 'capistrano-rvm'
 end
 
 group :production do

@@ -8,7 +8,7 @@ set :repo_url, "https://github.com/multshell/sisweb.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/apps/sisweb"
+set :deploy_to, "/var/www/sisweb"
 
 set :branch, "master"
 
@@ -25,7 +25,7 @@ set :log_level, :debug
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
