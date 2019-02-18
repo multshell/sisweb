@@ -73,10 +73,12 @@ group :development do
   gem 'capistrano-bundler', '~> 1.5'
   # RVM support for Capistrano v3:
   gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 end
 
 group :production do
   # PostgreSQL
   # gem 'pg'
+  gem 'unicorn'
 end
 
