@@ -1,4 +1,4 @@
-root = "/var/www/siteweb/current"
+root = "/var/www/sisweb/current"
 working_directory root
 
 pid "#{root}/tmp/pids/unicorn.pid"
@@ -10,4 +10,4 @@ worker_processes 4
 timeout 30
 preload_app true
 
-listen '/tmp/siteweb.sock', backlog: 64
+listen '/tmp/sisweb.sock', backlog: 64
