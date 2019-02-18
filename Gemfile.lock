@@ -235,7 +235,7 @@ DEPENDENCIES
   jquery-mask-plugin
   jquery-rails
   money-rails (~> 1.12)
-  pg (~> 0.20)
+  pg
   pundit
   rails (= 4.2.5)
   rails-assets-bootbox!
