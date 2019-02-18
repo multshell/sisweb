@@ -16,6 +16,6 @@
 !/log/.keep
 /tmp
 
-# Database configuration
+# Ignore Database configuration
 config/database.yml
 config/secrets.yml
