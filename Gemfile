@@ -11,6 +11,8 @@ gem 'foreman'
 gem 'devise'
 # Translations for the devise gem
 gem 'devise-i18n'
+# Enum attributes with I18n and ActiveRecord support
+gem 'enum_help'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
 # Minimal authorization through OO design and pure Ruby classes

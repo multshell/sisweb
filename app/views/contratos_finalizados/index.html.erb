@@ -67,7 +67,7 @@
 </div> -->
 
 <ul class="nav nav-tabs">
-    <li class="col-lg-4 col-md-6 active">
+    <li class="col-lg-4 col-md-6">
         <%= link_to contratos_path, 'aria-expanded' => 'true' do %>
                 <div class="panel-heading">
                     <div class="row">
@@ -91,7 +91,7 @@
             </div>
         <% end %>
     </li>
-    <li class="col-lg-4 col-md-6">
+    <li class="col-lg-4 col-md-6 active">
         <%= link_to contratos_finalizados_path, 'aria-expanded' => 'false' do %>
             <div class="panel-heading">
                 <div class="row">
@@ -109,9 +109,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         Listando Contratos
-        <%= link_to contratos_ativos_path do %>
-            Ativos
-        <% end %>
         <% if policy(@contratos).new? %>
             <%= link_to new_contrato_path, class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
                 <i class="fa fa-plus"></i>

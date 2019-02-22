@@ -1,4 +1,4 @@
-class ContratosController < SistemaController
+class ContratosFinalizadosController < SistemaController
   before_action :set_contrato, only: [:edit, :update, :destroy]
   before_action :set_options_for_select, only: [:new, :edit, :create, :update, :destroy]
 
@@ -7,10 +7,10 @@ class ContratosController < SistemaController
   def index
     @hoje = Date.current
     @todoscontratos = Contrato.all.order("id ASC")
-    @contratos = @todoscontratos
+    @contratos = Contrato.where('? > data_venc', @hoje)
     @todos = @todoscontratos.size
     @ativos = @todoscontratos.where('? < data_venc', @hoje).count
-    @finalizados = @todoscontratos.where('? > data_venc', @hoje).count
+    @finalizados = @contratos.count
     @vigencia_rest
   end
 

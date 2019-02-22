@@ -28,7 +28,7 @@
                             <td><%= user.id %></td>
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
-                            <td><%= user.role %></td>
+                            <td><%= user.role_i18n %></td>
                             <td style="width: 150px">
                                 <% if (user.role != 'completo') && policy(@users).edit? %>
                                     <%= link_to edit_user_path(user), class: "btn btn-primary btn-circle" do %>

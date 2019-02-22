@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   
   
+  get 'contratos_finalizados/index'
+
+  get 'contratos_ativos/index'
+
   get 'panels/index'
   
   get 'contratos/index'
@@ -13,9 +17,9 @@ Rails.application.routes.draw do
   resources :modalidades, except: [:show]
   resources :entidades, except: [:show]
   resources :contratos, except: [:show]
+  resources :contratos_ativos, only: [:index]
+  resources :contratos_finalizados, only: [:index]
 
-  
-  
   root 'panels#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
