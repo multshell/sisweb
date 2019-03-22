@@ -3,5 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
     $('#fornecedores').dataTable({
-        "autoWidth": true
+        autoWidth: true,
+        "lengthMenu": [ 50, 10, 25, 75, 100 ]
     });
