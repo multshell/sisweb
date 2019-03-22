@@ -1,17 +1,23 @@
 class ContratosController < SistemaController
-  before_action :set_contrato, only: [:edit, :update, :destroy]
+  before_action :set_contrato, only: [:edit, :update, :destroy, :show]
   before_action :set_options_for_select, only: [:new, :edit, :create, :update, :destroy]
-
+  
   # GET /fornecedores
   # GET /fornecedores.json
   def index
     @hoje = Date.current
-    @todoscontratos = Contrato.all.order("id ASC")
-    @contratos = @todoscontratos
+    @ano = params[:ano_param]
+    if @ano == nil then @ano = @hoje.year.to_s end
+    @todoscontratos = Contrato.all.order("numero ASC")
+    @contratos = @todoscontratos.where('ano = ?', @ano)
     @todos = @todoscontratos.size
-    @ativos = @todoscontratos.where('? < data_venc', @hoje).count
+    @ativos = @todoscontratos.where('(? < data_venc)', @hoje).count
     @finalizados = @todoscontratos.where('? > data_venc', @hoje).count
     @vigencia_rest
+  end
+  
+  def show
+    @aditivos = Aditivo.where('contrato_id = ?', @contrato.id)
   end
 
   # GET /fornecedores/new

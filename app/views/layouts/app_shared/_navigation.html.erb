@@ -39,35 +39,40 @@
             <ul class="nav" id="side-menu">
                 <li>
                     <%= link_to panels_index_path do %>
-                    <i class="fa fa-dashboard fa-fw"></i> Painel
+                        <i class="fa fa-dashboard fa-fw"></i> Painel
                     <% end %>
                 </li>
                 
                 <li class="active">
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse in" aria-expanded="true" style="">
-                                <li>
-                                    <%= link_to entidades_path do %>
-                                        <i class="fa fa-institution fa-fw"></i> Órgãos
-                                    <% end %>
-                                </li>
-                                <li>
-                                    <%= link_to fornecedores_path do %>
-                                        <i class="fa fa-truck fa-fw"></i> Fornecedores
-                                    <% end %>
-                                </li>
-                                <li>
-                                    <%= link_to modalidades_path do %>
-                                        <i class="fa fa-th-list fa-fw"></i> Modalidades
-                                    <% end %>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in" aria-expanded="true" style="">
+                        <li>
+                            <%= link_to entidades_path do %>
+                                <i class="fa fa-institution fa-fw"></i> Órgãos
+                            <% end %>
                         </li>
+                        <li>
+                            <%= link_to fornecedores_path do %>
+                                <i class="fa fa-truck fa-fw"></i> Fornecedores
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to modalidades_path do %>
+                                <i class="fa fa-th-list fa-fw"></i> Modalidades
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to tipo_aditivos_path do %>
+                                <i class="fa fa-th-list fa-fw"></i> Tipos de Aditivos
+                            <% end %>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
                 
                 
                 <li>
-                    <%= link_to contratos_index_path do %>
+                    <%= link_to contratos_path(:ano_param => ano_corrente) do %>
                     <i class="fa fa-edit fa-fw"></i> Contratos
                     <% end %>
                 </li>

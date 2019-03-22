@@ -13,6 +13,10 @@ class ContratosAtivosController < SistemaController
     @finalizados = @todoscontratos.where('? > data_venc', @hoje).count
     @vigencia_rest
   end
+  
+  def show
+    @aditivos = Aditivo.where('contrato_id = ?', @contrato.id)
+  end
 
   # GET /fornecedores/new
   def new

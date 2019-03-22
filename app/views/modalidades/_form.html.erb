@@ -24,6 +24,9 @@
                 <%= f.text_field :descricao, autofocus: true, class: "form-control", placeholder: "Descrição da Modalidade"  %>
             </div>
             <button type="submit" class="btn btn-default">Salvar</button>
+            <%= link_to modalidades_path, class: "btn btn-default" do %>
+                Voltar
+            <% end %>
         <% end %>
     </div>
     

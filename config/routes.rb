@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  
-  
-  
-  get 'contratos_finalizados/index'
-
-  get 'contratos_ativos/index'
 
   get 'panels/index'
   
@@ -16,9 +10,11 @@ Rails.application.routes.draw do
   resources :fornecedores, except: [:show]
   resources :modalidades, except: [:show]
   resources :entidades, except: [:show]
-  resources :contratos, except: [:show]
+  resources :contratos
   resources :contratos_ativos, only: [:index]
   resources :contratos_finalizados, only: [:index]
+  resources :tipo_aditivos, except: [:show]
+  resources :aditivos
 
   root 'panels#index'
 

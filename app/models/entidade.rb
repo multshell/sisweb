@@ -1,5 +1,5 @@
 class Entidade < ActiveRecord::Base
-    has_many :contratos , inverse_of: :order
+    has_many :contratos, inverse_of: :entidade
     
     
     validates :sigla, presence: true

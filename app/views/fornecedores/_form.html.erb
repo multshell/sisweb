@@ -36,6 +36,9 @@
                 <%= f.text_field :email, class: "form-control", placeholder: "Email do Fornecedor"  %>
             </div>
             <button type="submit" class="btn btn-default">Salvar</button>
+            <%= link_to fornecedores_path, class: "btn btn-default" do %>
+                Voltar
+            <% end %>
         <% end %>
     </div>
     

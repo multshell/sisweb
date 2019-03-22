@@ -2,6 +2,7 @@ class Contrato < ActiveRecord::Base
   belongs_to :entidade
   belongs_to :fornecedor
   belongs_to :modalidade
+  has_many :aditivos , inverse_of: :contrato
   
   validates :numero, presence: true
   validates :ano, presence: true
