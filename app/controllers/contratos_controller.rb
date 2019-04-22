@@ -8,11 +8,12 @@ class ContratosController < SistemaController
     @hoje = Date.current
     @ano = params[:ano_param]
     if @ano == nil then @ano = @hoje.year.to_s end
-    @todoscontratos = Contrato.all.order("numero ASC")
-    @contratos = @todoscontratos.where('ano = ?', @ano)
-    @todos = @todoscontratos.size
-    @ativos = @todoscontratos.where('(? < data_venc)', @hoje).count
-    @finalizados = @todoscontratos.where('? > data_venc', @hoje).count
+    #@todoscontratos = Contrato.all.order("numero ASC")
+    @contratos = Contrato.all.where('ano = ?', @ano).order("numero ASC")
+    #@contratos = @todoscontratos.where('ano = ?', @ano)
+    #@todos = @todoscontratos.size
+    #@ativos = @todoscontratos.where('(? < data_venc)', @hoje).count
+    #@finalizados = @todoscontratos.where('? > data_venc', @hoje).count
     @vigencia_rest
   end
   
